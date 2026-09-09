@@ -1,5 +1,10 @@
 # 🎓 Guia do Calouro - Projeto Equipe (Grupo 2)
 
+* 🌐 **Site Publicado (GitHub Pages):** [https://patryckgtoliveira-cpu.github.io/projeto-equipe-grupo-2/](https://patryckgtoliveira-cpu.github.io/projeto-equipe-grupo-2)
+* 📂 **Repositório Oficial:** [github.com/patryckgtoliveira-cpu/projeto-equipe-grupo-2](https://github.com/patryckgtoliveira-cpu/projeto-equipe-grupo-2)
+
+---
+
 Este repositório contém a página oficial do **Guia do Calouro**, um site institucional desenvolvido colaborativamente para auxiliar novos estudantes de ADS e Ciência da Computação nos seus primeiros semestres universitários.
 
 ---
