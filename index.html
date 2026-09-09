@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Calouro - Projeto Equipe Grupo 2</title>
+    
+    <!-- ÁREA DO CSS (ESTILOS) -->
+    <style>
+        /* Reset e Configurações Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+
+        /* Estrutura das Caixas */
+        header, section, footer {
+            max-width: 1000px;
+            margin: 25px auto;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+        }
+
+        /* Textos e Títulos */
+        h1 {
+            font-size: 2.5rem;
+            color: #58a6ff;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #58a6ff;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+
+        /* Seção Hero (Membro 1) */
+        .hero {
+            text-align: center;
+        }
+        .hero p {
+            color: #8b949e;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #238636;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2ea043;
+        }
+
+        /* Funcionalidades (Membro 2) */
+        .funcionalidades {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .funcionalidades li {
+            background: #21262d;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+        .funcionalidades strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        /* Equipe (Membro 3) - Efeito 3D Flip Card */
+        .equipe {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            height: 280px;
+            perspective: 1000px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        .card-front img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #30363d;
+        }
+        .card-front h3, .card-back h3 {
+            color: #f0f6fc;
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+        .card-front p, .card-back p {
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin: 5px 0;
+        }
+        .card-front a {
+            color: #58a6ff;
+            font-size: 0.8rem;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        /* Contato (Membro 4) */
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            background: #0d1117;
+            color: white;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            margin-top: 5px;
+            font-family: inherit;
+        }
+        button[type="submit"] {
+            background: #238636;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        button[type="submit"]:hover {
+            background: #2ea043;
+        }
+        .repo-link {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade para Celulares */
+        @media (max-width: 600px) {
+            body { padding: 20px 10px; }
+            header h1 { font-size: 2rem; }
+            .card { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LÍDER / MEMBRO 1: Patryck - Hero & Apresentação -->
+    <header class="hero">
+        <h1>🎓 Guia do Calouro</h1>
+        <p><strong>Solução:</strong> Um site institucional para ajudar calouros de ADS e Ciência da Computação a sobreviverem aos primeiros semestres.</p>
+        <p><strong>Problema que resolve:</strong> Excesso de informação desencontrada, links quebrados e glossário técnico confuso para quem está entrando agora.</p>
+        <p><strong>Público-alvo:</strong> Estudantes do 1º e 2º período de tecnologia em Curitiba/PR.</p>
+        <a href="#funcionalidades" class="btn">Começar Agora</a>
+    </header>
+
+    <!-- MEMBRO 2: Eduardo - Funcionalidades Principais -->
+    <section id="funcionalidades">
+        <h2>📚 O que você encontra no Guia?</h2>
+        <ul class="funcionalidades">
+            <li><strong>📖 Roadmap de Estudos</strong><br>Trilhas organizadas do 1º ao 4º semestre com conceitos fundamentais.</li>
+            <li><strong>🔗 Central de Links Úteis</strong><br>Livros de domínio público, documentações oficiais e canais recomendados.</li>
+            <li><strong>💡 Glossário Dev</strong><br>Explicação simples de termos como API, PR, Deploy, Commit.</li>
+            <li><strong>🗓️ Cronograma Acadêmico</strong><br>Datas de entregas, provas e eventos da universidade.</li>
+            <li><strong>💬 Comunidade</strong><br>Grupo para tirar dúvidas com veteranos.</li>
+        </ul>
+    </section>
+
+    <!-- MEMBRO 3: Hemanuel - Quem Somos -->
+    <section id="quem-somos">
+        <h2>👥 Quem Somos - Mural da Equipe</h2>
+        <p style="color: #8b949e; margin-bottom: 20px;">Equipe de 5 integrantes - Desafio Prático Git | ADS - Curitiba, Paraná</p>
+
+        <div class="equipe">
+            <!-- Card Patryck -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/patryckgtoliveira-cpu.png" alt="Patryck Geovany">
+                        <h3>Patryck Geovany</h3>
+                        <p><strong>Líder / Membro 1</strong><br>Hero & Apresentação</p>
+                        <a href="https://github.com/patryckgtoliveira-cpu" target="_blank">github.com/patryckgtoliveira-cpu</a>
+                    </div>
+                    <div class="card-back">
+                        <h3>O que fez?</h3>
+                        <p>Líder do grupo. Desenvolveu a seção principal (Hero) e ajudou no Front-end e UX/UI geral da interface.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Eduardo -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/duccatheone.png" alt="Eduardo Ducca">
+                        <h3>Eduardo Ducca</h3>
+                        <p><strong>Membro 2</strong><br>Funcionalidades Principais</p>
+                        <a href="https://github.com/duccatheone" target="_blank">github.com/duccatheone</a>
+                    </div>
+                    <div class="card-back">
+                        <h3>O que fez?</h3>
+                        <p>Responsável pelas funcionalidades principais, implementação, estilização da seção e organização do código base.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Hemanuel -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/Hemanuel10.png" alt="Hemanuel Antunes">
+                        <h3>Hemanuel Antunes</h3>
+                        <p><strong>Membro 3</strong><br>Quem Somos - Mural</p>
+                        <a href="https://github.com/Hemanuel10" target="_blank">github.com/Hemanuel10</a>
+                    </div>
+                    <div class="card-back">
+                        <h3>O que fez?</h3>
+                        <p>Criou a seção "Quem Somos" e o design interativo dos cartões 3D da equipe, organizando os integrantes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Marcelo Luz -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/marcelooluz.png" alt="Marcelo Luz">
+                        <h3>Marcelo Luz</h3>
+                        <p><strong>Membro 4</strong><br>CTA & Contato</p>
+                        <a href="https://github.com/marcelooluz" target="_blank">github.com/marcelooluz</a>
+                    </div>
+                    <div class="card-back">
+                        <h3>O que fez?</h3>
+                        <p>Trabalhou no Call to Action, links do repositório, formulário de contato e apresentação das tecnologias.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Marcelo Expedito -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/marceloUTI.png" alt="Marcelo Expedito">
+                        <h3>Marcelo Expedito</h3>
+                        <p><strong>Membro 4</strong><br>CTA & Contato</p>
+                        <a href="https://github.com/marceloUTI" target="_blank">github.com/marceloUTI</a>
+                    </div>
+                    <div class="card-back">
+                        <h3>O que fez?</h3>
+                        <p>Auxiliou no Call to Action, validação dos links oficiais do grupo e finalização da estrutura de envio e contato.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBRO 4: Marcelo Luz e Expedito - Contato & Repositório -->
+    <section id="contato">
+        <h2>🚀 Teste nosso projeto e Repositório Oficial</h2>
+        <p style="margin: 15px 0;">
+            <strong>Link do Repositório:</strong> <a class="repo-link" href="https://github.com/patryckgtoliveira-cpu/projeto-equipe-grupo-2" target="_blank">github.com/patryckgtoliveira-cpu/projeto-equipe-grupo-2</a><br>
+            <strong>Tecnologias utilizadas:</strong> HTML, CSS, Git, GitHub Pages<br>
+            <strong>Entrega:</strong> Blackboard dia 31/08
+        </p>
+
+        <form>
+            <label>Nome:</label>
+            <input type="text" placeholder="Seu nome completo" required>
+            
+            <label style="display: block; margin-top: 10px;">E-mail:</label>
+            <input type="email" placeholder="seu@email.com" required>
+            
+            <label style="display: block; margin-top: 10px;">Mensagem:</label>
+            <textarea rows="4" placeholder="Deixe sua sugestão para o Guia..."></textarea>
+            
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Guia do Calouro - Grupo 2 - Todos os integrantes constam em Insights > Contributors</p>
+        <p>Entrega finalizada via GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
